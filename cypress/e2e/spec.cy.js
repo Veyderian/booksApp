@@ -6,9 +6,8 @@ describe('books library test', () => {
     cy.viewport(1280, 800);
     //cy.viewport('iphone-6', 'landscape'); //имитирует пользователя, держащего iPhone в альбомной ориентации
 	//cy.viewport('iphone-6'); 
+	cy.visit('/');
 
-		//cy.visit(Cypress.env('booksApp_url'));
-		cy.visit('/');
 	})
 	
 	it('should be login', () => {
