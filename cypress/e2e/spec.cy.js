@@ -1,19 +1,17 @@
 
-Cypress.env('booksapp_url') // 'http://localhost:3000'
+Cypress.env('booksApp_url') // 'http://localhost:3000'
 
 describe('books library test', () => {
 	beforeEach(() => {
-    cy.viewport(1280, 800);
-    //cy.viewport('iphone-6', 'landscape'); //имитирует пользователя, держащего iPhone в альбомной ориентации
-	//cy.viewport('iphone-6'); 
-	cy.visit('/');
-
+		cy.viewport(1280, 800);
+		//cy.viewport('iphone-6', 'landscape'); //имитирует пользователя, держащего iPhone в альбомной ориентации
+		cy.visit('/');
 	})
 	
 	it('should be login', () => {
 		cy.login("test@test.com", "test");
 		cy.contains('Добро пожаловать test@test.com').should('be.visible');
-	})
+	})git 
 	
 
 	it('test field email is empty', () => {
