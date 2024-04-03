@@ -27,7 +27,13 @@
     "build": "react-scripts build",
     "test": "cypress test",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cypress-booksApp-test":"npx cypress run --spec cypress/e2e/spec.cy.js --config-file cypress.config.js ",
+    "cypress:run": "cypress run --headed",
+    "cypress:run:chrome": "cypress run --browser chrome --headless",
+    "cypress:run:firefox": "cypress run --browser firefox --headed",
+    "cypress:run:edge": "cypress run --browser edge --headed",
+    "cypress:run:electron": "cypress run --browser electron --headless"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,12 +47,13 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 1 edge version"
     ]
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "cypress": "^13.7.0",
+    "cypress": "^13.7.1",
     "eslint": "^7.10.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",

@@ -1,17 +1,23 @@
 
+Cypress.env('booksapp_url') // 'http://localhost:3000'
+
 describe('books library test', () => {
 	beforeEach(() => {
-		cy.visit("/");
+    cy.viewport(1280, 800);
+    //cy.viewport('iphone-6', 'landscape'); //имитирует пользователя, держащего iPhone в альбомной ориентации
+	//cy.viewport('iphone-6'); 
+
+		//cy.visit(Cypress.env('booksApp_url'));
+		cy.visit('/');
 	})
 	
-
-	it.skip('should be login', () => {
+	it('should be login', () => {
 		cy.login("test@test.com", "test");
 		cy.contains('Добро пожаловать test@test.com').should('be.visible');
 	})
 	
 
-	it.skip('test field email is empty', () => {
+	it('test field email is empty', () => {
 		cy.login(null, "test");
 		cy.get('#mail').then((elements) => {
 			expect(elements[0].checkValidity()).to.be.false;
@@ -20,7 +26,7 @@ describe('books library test', () => {
 	})
 	
 
-	it.skip('test field password is empty', () => {
+	it('test field password is empty', () => {
 		cy.login("test@test.com", null);
 		cy.get('#pass').then((elements) => {
 			expect(elements[0].checkValidity()).to.be.false;
@@ -30,6 +36,7 @@ describe('books library test', () => {
 
 
 	it('test book add', () => {
+		cy.viewport('iphone-6');
 		cy.login("bropet@mail.ru", "123");
 		cy.book('Герой должен быть один',
 			'Роман представляет собой переосмысление древнегреческих мифов о Геракле.',
@@ -47,6 +54,7 @@ describe('books library test', () => {
 
 
 	it('test book add to favorite', () => {
+		cy.viewport('iphone-6');
 		cy.login("bropet@mail.ru", "123");
 		cy.book('Герой должен быть один',
 			'Роман представляет собой переосмысление древнегреческих мифов о Геракле.',
